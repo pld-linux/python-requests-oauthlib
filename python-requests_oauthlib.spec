@@ -5,12 +5,12 @@
 %define 	module	requests_oauthlib
 Summary:	First-class OAuth library support for python-requests
 Name:		python-%{module}
-Version:	0.3.3
+Version:	0.5.0
 Release:	1
 License:	ISC
 Group:		Development/Languages/Python
 Source0:	https://pypi.python.org/packages/source/r/requests-oauthlib/requests-oauthlib-%{version}.tar.gz
-# Source0-md5:	27aa20071880b16493e3e25a5f83cc32
+# Source0-md5:	139a17c495fb593b5842634faf72ebb0
 URL:		https://github.com/requests/requests-oauthlib
 %if %{with python2}
 BuildRequires:	python-distribute
