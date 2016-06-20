@@ -1,16 +1,16 @@
 # Conditional build:
 %bcond_without  python2         # build python 2 module
 %bcond_without  python3         # build python 3 module
-#
+
 %define		module	requests_oauthlib
 Summary:	First-class OAuth library support for python-requests
 Name:		python-%{module}
-Version:	0.5.0
-Release:	4
+Version:	0.6.1
+Release:	1
 License:	ISC
 Group:		Development/Languages/Python
 Source0:	https://pypi.python.org/packages/source/r/requests-oauthlib/requests-oauthlib-%{version}.tar.gz
-# Source0-md5:	139a17c495fb593b5842634faf72ebb0
+# Source0-md5:	f159bc7675ebe6a2d76798f4c00c5bf8
 URL:		https://github.com/requests/requests-oauthlib
 %if %{with python2}
 BuildRequires:	python-distribute
