@@ -2,14 +2,16 @@
 %bcond_without  python2         # build python 2 module
 %bcond_without  python3         # build python 3 module
 
-%define		module	requests_oauthlib
+%define		module		requests_oauthlib
+%define		egg_name	requests_oauthlib
+%define		pypi_name	requests-oauthlib
 Summary:	First-class OAuth library support for python-requests
-Name:		python-%{module}
+Name:		python-%{pypi_name}
 Version:	0.6.1
-Release:	2
+Release:	3
 License:	ISC
 Group:		Development/Languages/Python
-Source0:	https://pypi.python.org/packages/source/r/requests-oauthlib/requests-oauthlib-%{version}.tar.gz
+Source0:	https://files.pythonhosted.org/packages/source/r/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 # Source0-md5:	f159bc7675ebe6a2d76798f4c00c5bf8
 URL:		https://github.com/requests/requests-oauthlib
 %if %{with python2}
@@ -25,24 +27,26 @@ BuildRequires:	rpmbuild(macros) >= 1.710
 Requires:	python-modules >= 1:2.6
 Requires:	python-oauthlib >= 0.4.2
 Requires:	python-requests >= 1.0.0
+Obsoletes:	python-requests_oauthlib < 0.6.1-3
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 First-class OAuth library support for python-requests.
 
-%package -n python3-requests_oauthlib
+%package -n python3-%{pypi_name}
 Summary:	First-class OAuth library support for python-requests
 Group:		Development/Languages/Python
 Requires:	python3-modules >= 3.2
 Requires:	python3-oauthlib >= 0.4.2
 Requires:	python3-requests >= 1.0.0
+Obsoletes:	python3-requests_oauthlib < 0.6.1-3
 
-%description -n python3-requests_oauthlib
+%description -n python3-%{pypi_name}
 First-class OAuth library support for python-requests.
 
 %prep
-%setup -q -n requests-oauthlib-%{version}
+%setup -q -n %{pypi_name}-%{version}
 
 %build
 %if %{with python2}
@@ -55,10 +59,8 @@ First-class OAuth library support for python-requests.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %if %{with python2}
 %py_install
-
 %py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
 %py_comp $RPM_BUILD_ROOT%{py_sitescriptdir}
 %py_postclean
@@ -78,15 +80,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.rst
 %{py_sitescriptdir}/%{module}
-%if "%{py_ver}" > "2.4"
-%{py_sitescriptdir}/%{module}-%{version}-py*.egg-info
-%endif
+%{py_sitescriptdir}/%{egg_name}-%{version}-py*.egg-info
 %endif
 
 %if %{with python3}
-%files -n python3-requests_oauthlib
+%files -n python3-%{pypi_name}
 %defattr(644,root,root,755)
 %doc README.rst
 %{py3_sitescriptdir}/%{module}
-%{py3_sitescriptdir}/%{module}-%{version}-py*.egg-info
+%{py3_sitescriptdir}/%{egg_name}-%{version}-py*.egg-info
 %endif
