@@ -70,8 +70,6 @@ rm -rf $RPM_BUILD_ROOT
 %py3_install
 %endif
 
-%{__rm} -rf $RPM_BUILD_ROOT{%{py_sitescriptdir},%{py3_sitescriptdir}}/%{module}/{cacert.pem,packages}
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
