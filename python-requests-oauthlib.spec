@@ -7,20 +7,18 @@
 %define		pypi_name	requests-oauthlib
 Summary:	First-class OAuth library support for python-requests
 Name:		python-%{pypi_name}
-Version:	0.6.1
-Release:	3
+Version:	0.8.0
+Release:	1
 License:	ISC
 Group:		Development/Languages/Python
 Source0:	https://files.pythonhosted.org/packages/source/r/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
-# Source0-md5:	f159bc7675ebe6a2d76798f4c00c5bf8
+# Source0-md5:	4358a879a4377393bcfd37d0f9ae6d4d
 URL:		https://github.com/requests/requests-oauthlib
 %if %{with python2}
-BuildRequires:	python-distribute
-BuildRequires:	python-modules >= 1:2.6
+BuildRequires:	python-setuptools
 %endif
 %if %{with python3}
-BuildRequires:	python3-distribute
-BuildRequires:	python3-modules >= 1:3.2
+BuildRequires:	python3-setuptools
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.710
