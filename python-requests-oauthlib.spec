@@ -8,7 +8,7 @@
 Summary:	First-class OAuth library support for python-requests
 Name:		python-%{pypi_name}
 Version:	0.8.0
-Release:	1
+Release:	2
 License:	ISC
 Group:		Development/Languages/Python
 Source0:	https://files.pythonhosted.org/packages/source/r/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
