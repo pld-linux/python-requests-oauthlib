@@ -35,7 +35,7 @@ First-class OAuth library support for python-requests.
 %package -n python3-%{pypi_name}
 Summary:	First-class OAuth library support for python-requests
 Group:		Development/Languages/Python
-Requires:	python3-modules >= 3.2
+Requires:	python3-modules >= 1:3.2
 Requires:	python3-oauthlib >= 0.4.2
 Requires:	python3-requests >= 1.0.0
 Obsoletes:	python3-requests_oauthlib < 0.6.1-3
