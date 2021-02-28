@@ -12,7 +12,7 @@ Summary:	OAuthlib authentication support for Requests
 Summary(pl.UTF-8):	Obsługa uwierzytelniania przez OAuthlib dla Requests
 Name:		python-%{pypi_name}
 Version:	1.3.0
-Release:	1
+Release:	2
 License:	ISC
 Group:		Development/Languages/Python
 #Source0Download: https://pypi.org/simple/requests-oauthlib/
