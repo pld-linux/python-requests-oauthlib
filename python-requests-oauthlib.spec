@@ -3,13 +3,14 @@
 %bcond_without	doc	# API documentation
 %bcond_without	tests	# unit tests
 %bcond_without	python2	# CPython 2.x module
-%bcond_without	python3	# CPython 3.x module
+%bcond_with	python3	# CPython 3.x module (built from python3-requests-oauthlib.spec)
 
 Summary:	OAuthlib authentication support for Requests
 Summary(pl.UTF-8):	Obsługa uwierzytelniania przez OAuthlib dla Requests
 Name:		python-requests-oauthlib
+# keep 1.3.x here for python2 support (1.4.x are yanked, 2.x python3-only)
 Version:	1.3.1
-Release:	1
+Release:	2
 License:	ISC
 Group:		Development/Languages/Python
 #Source0Download: https://pypi.org/simple/requests-oauthlib/
@@ -41,7 +42,7 @@ BuildRequires:	python3-requests-mock
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
-%{?with_doc:BuildRequires:	sphinx-pdg}
+%{?with_doc:BuildRequires:	sphinx-pdg-2}
 Requires:	python-modules >= 1:2.7
 Obsoletes:	python-requests_oauthlib < 0.6.1-3
 BuildArch:	noarch
@@ -98,7 +99,8 @@ Dokumentacja API biblioteki requests-oauthlib.
 %endif
 
 %if %{with doc}
-%{__make} -C docs html
+%{__make} -C docs html \
+	SPHINXBUILD=sphinx-build-2
 %endif
 
 %install
